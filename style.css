@@ -1,0 +1,26 @@
+body {
+    background-color: lightgreen;
+    text-align: center;
+}
+
+button {
+    margin: 20px 0;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 8px;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px
+}
+
+div > p {
+    font-size:50px;
+    text-decoration: underline;
+}
