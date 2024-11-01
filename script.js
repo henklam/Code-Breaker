@@ -6,7 +6,6 @@ var random2 = Math.floor(Math.random()*3)+1;
 var random3 = Math.floor(Math.random()*3)+1;
 var compNums = [random1, random2, random3];
 var nums = [];
-console.log(compNums);
 
 document.getElementById("clock").innerHTML = "Clock: " + clock;
 
