@@ -66,3 +66,30 @@ function clickClear() {
         document.getElementById("guess3").innerHTML = "?";
     }
 }
+
+function eraseOne() {
+    if(!match && clock != 0 && digit > 1) {
+        digit--;
+        nums.splice(nums.length-1,1);
+        document.getElementsByTagName("p")[digit].innerHTML = "?";
+    }
+}
+
+document.addEventListener("keypress", function(event) {
+    if(event.key === "1") {
+        event.preventDefault();
+        document.getElementById("one").click();
+    } else if(event.key === "2") {
+        event.preventDefault();
+        clickTwo();
+    } else if(event.key === "3") {
+        event.preventDefault();
+        clickThree();
+    } else if(event.key === "Enter") {
+        event.preventDefault();
+        clickOkay();
+    } else if(event.key === "Backspace") {
+        event.preventDefault();
+        eraseOne();
+    }
+})
