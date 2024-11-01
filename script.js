@@ -1,6 +1,6 @@
 var clock = 7;
 var digit = 1;
-var match = true;
+var match = false;
 var random1 = Math.floor(Math.random()*3)+1;
 var random2 = Math.floor(Math.random()*3)+1;
 var random3 = Math.floor(Math.random()*3)+1;
@@ -8,7 +8,7 @@ var compNums = [random1, random2, random3];
 var nums = [];
 console.log(compNums);
 
-document.getElementById("clock").innerHTML = clock;
+document.getElementById("clock").innerHTML = "Clock: " + clock;
 
 function clickOne() {
     if(digit < 4) {
@@ -44,9 +44,14 @@ function clickOkay() {
         }
         if(!match && clock != 0) {
             clock--;
-            document.getElementById("clock").innerHTML = clock;
+            document.getElementById("clock").innerHTML = "Clock: " + clock;
             clickClear();
         }
+    }
+    if(match) {
+        document.getElementById("msg").innerHTML = "You guessed correctly!";
+    } else if(clock == 0) {
+        document.getElementById("msg").innerHTML = "You ran out of time!";
     }
 }
 
@@ -57,5 +62,8 @@ function clickClear() {
             document.getElementsByTagName("p")[i].innerHTML = "";
         }
         digit = 1;
+        document.getElementById("guess1").innerHTML = "?";
+        document.getElementById("guess2").innerHTML = "?";
+        document.getElementById("guess3").innerHTML = "?";
     }
 }
