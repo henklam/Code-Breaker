@@ -75,7 +75,7 @@ function eraseOne() {
     }
 }
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keydown", function(event) {
     if(event.key === "1") {
         event.preventDefault();
         document.getElementById("one").click();
