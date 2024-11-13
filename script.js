@@ -42,7 +42,11 @@ function clickThree() {
     }
 }
 
+var over = false;
 function clickOkay() {
+    if(over) {
+        return;
+    }
     if(digit == 4 && !infoShow) {
         match = true;
         for(let i = 1; i < nums.length; i++) {
@@ -61,9 +65,11 @@ function clickOkay() {
         scores.push(8-clock);
         scores[1]++;
         localStorage.setItem("scores", JSON.stringify(scores));
+        over = true;
     } else if(clock == 0) {
         document.getElementById("msg").innerHTML = "You ran out of time!";
         scores[0]++;
+        localStorage.setItem("scores", JSON.stringify(scores));
     }
 }
 
@@ -92,23 +98,22 @@ function info() {
     var div = document.getElementById("infoDiv");
     var backDiv = document.getElementById("backDiv");
     if(!infoShow) {
-        // div.setAttribute("style", "visibility : visible")
-        // backDiv.setAttribute("style", "visibility: visible");
         div.classList.add("showInfo");
         backDiv.classList.add("showBackDiv");
         console.log(div);
         infoShow = true;
         let sum = 0;
-        for(let i = 0; i < scores.length; i++) {
+        for(let i = 2; i < scores.length; i++) {
             sum+=scores[i];
         }
-        let avg = Math.round((sum/(scores.length-2))*100)/100;
+        let avg = 0;
+        if(sum != 0) {
+            avg = Math.round((sum/(scores.length-2))*100)/100;
+        }
         document.getElementById("avg").innerHTML = "Average guesses: " + avg;
         document.getElementById("wins").innerHTML = "Wins: " + scores[1];
         document.getElementById("losses").innerHTML = "Losses: " + scores[0];
     } else {
-        // div.setAttribute("style", "visibility: hidden");
-        // backDiv.setAttribute("style", "visibility: hidden");
         div.classList.remove("showInfo");
         backDiv.classList.remove("showBackDiv");
         infoShow = false;
