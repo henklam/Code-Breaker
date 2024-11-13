@@ -8,17 +8,25 @@
 </head>
 <body>
     <p id="clock"></p>
-    <div>
+    <div id="buttonsDiv">
         <p id="guess1">?</p>
         <p id="guess2">?</p>
         <p id="guess3">?</p>
     </div>
-    <button id="one" onclick="clickOne()">1</button>
-    <button id="two" onclick="clickTwo()">2</button>
-    <button id="three" onclick="clickThree()">3</button>
-    <button id="clear" onclick="clickClear()">CLEAR</button>
-    <button id="okay" onclick="clickOkay()">OKAY</button>
+    <button class = "game" id="one" onclick="clickOne()">1</button>
+    <button class = "game" id="two" onclick="clickTwo()">2</button>
+    <button class = "game" id="three" onclick="clickThree()">3</button>
+    <button class = "game" id="clear" onclick="clickClear()">CLEAR</button>
+    <button class = "game" id="okay" onclick="clickOkay()">OKAY</button>
     <p id="msg"></p>
     <script src="script.js"></script>
+    <button id="info" onclick="info()">?</button>
+    <div id="backDiv"></div>
+    <div id="infoDiv">
+        <button id="close" onclick="info()">x</button>
+        <p id="avg"></p>
+        <p id="wins"></p>
+        <p id="losses"></p>
+    </div>
 </body>
 </html>
